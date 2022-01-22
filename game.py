@@ -52,6 +52,7 @@ class Game:
         self.choose = True
         self.effect = ""
         self.end_text = ""
+        self.num = 0
 
     # Исполнение способности "приказ"
     def do(self, objects):
@@ -161,6 +162,9 @@ class Game:
 # Функция реализующая ИИ противника
 def ai():
     try:
+        game.num += 1
+        if game.num == 8:
+            game.pas = True
         check = True
         number = 0
         effect = 0
@@ -557,7 +561,7 @@ def draw_effect():
         cords_x = 1020
         cords_y = 500
         screen.blit(frost_len, (cords_x, cords_y))
-    elif row2.effect == "frost":
+    if row2.effect == "frost":
         pygame.font.init()
         font2 = pygame.font.Font(None, 50)
         frost_len = font2.render(str(row2.len_effects), True, pygame.Color("White"))
