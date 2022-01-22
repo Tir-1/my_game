@@ -193,11 +193,9 @@ def ai():
                 card = enemy_cards[enemy_objects["attack"][0]]
                 check = False
         if check:
-            if len(enemy_objects["basic"]) != 0:
-                card = enemy_cards[enemy_objects["basic"][0]]
-            else:
-                print("k")
-                card = enemy_cards[enemy_objects["attack"][0]]
+            for i in enemy_objects:
+                if len(enemy_objects[i]) != 0:
+                    card = enemy_cards[enemy_objects[i][0]]
             row = 2
         # Определение его ряда и позиции
         if row == 1 and row3.total == 8:
@@ -720,7 +718,7 @@ class Deck(pygame.sprite.Sprite):
     def __init__(self, group, name, scale, x, y, deck):
         super().__init__(group)
         self.deck = deck
-        self.image = pygame.image.load(name)
+        self.image = pygame.image.load("data/" + name)
         self.image = pygame.transform.scale(self.image, scale)
         self.rect = self.image.get_rect()
         self.rect.x = x
