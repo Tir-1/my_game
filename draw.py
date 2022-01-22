@@ -1,6 +1,7 @@
 import pygame
 
 
+# Отображает информацию о карте
 def draw_info(text, sc):
     pygame.font.init()
     font2 = pygame.font.Font(None, 40)
@@ -13,6 +14,7 @@ def draw_info(text, sc):
     sc.blit(text2, (text_x, 900))
 
 
+# Отрисовка счёта
 def draw_score(text, sc):
     pygame.font.init()
     font2 = pygame.font.Font(None, 50)
@@ -31,6 +33,7 @@ def draw_score2(text, sc):
     sc.blit(text, (text_x, text_y))
 
 
+# Фоновые спрайты
 class BackFon(pygame.sprite.Sprite):
     def __init__(self, group, name, scale, x, y):
         super().__init__(group)
